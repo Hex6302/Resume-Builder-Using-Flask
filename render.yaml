@@ -2,7 +2,10 @@ services:
   - type: web
     name: resume-builder
     env: python
-    buildCommand: pip install -r requirements.txt
+    buildCommand: |
+      python -m pip install --upgrade pip
+      pip install --upgrade setuptools wheel
+      pip install -r requirements.txt
     startCommand: gunicorn main:app
     envVars:
       - key: PYTHON_VERSION
