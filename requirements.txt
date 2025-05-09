@@ -1,3 +1,4 @@
+# Python 3.8 compatible packages
 Flask==2.0.1
 Flask-SQLAlchemy==2.5.1
 Werkzeug==2.0.1
@@ -7,3 +8,6 @@ SQLAlchemy==1.4.23
 pdfkit==1.0.0
 reportlab==4.0.4
 gunicorn==20.1.0
+# Build dependencies
+setuptools>=65.5.1
+wheel>=0.38.0
