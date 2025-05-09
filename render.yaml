@@ -3,12 +3,14 @@ services:
     name: resume-builder
     env: python
     buildCommand: |
-      python -m pip install --upgrade pip
-      pip install --upgrade setuptools wheel
-      pip install -r requirements.txt
+      python3 -m ensurepip --upgrade
+      python3 -m pip install --upgrade pip setuptools wheel
+      python3 -m pip install -r requirements.txt
     startCommand: gunicorn main:app
     envVars:
       - key: PYTHON_VERSION
         value: 3.8.0
       - key: SECRET_KEY
-        generateValue: true 
+        generateValue: true
+      - key: PIP_DISABLE_PIP_VERSION_CHECK
+        value: "1" 
