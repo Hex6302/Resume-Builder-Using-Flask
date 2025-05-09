@@ -7,11 +7,13 @@ services:
       python3.11 -m pip install --upgrade pip
       python3.11 -m pip install --upgrade setuptools wheel
       python3.11 -m pip install -r requirements.txt
-    startCommand: gunicorn main:app
+    startCommand: gunicorn main:app --bind 0.0.0.0:$PORT
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.0
       - key: SECRET_KEY
         generateValue: true
       - key: PIP_NO_CACHE_DIR
-        value: "1" 
+        value: "1"
+      - key: PORT
+        value: "10000" 
